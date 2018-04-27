@@ -57,7 +57,6 @@
 
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://stevenlevithan.com/assets/misc/date.format.js"></script>
 <script>
     $(document).ready(function () {
         let configuration = '[{"name":"base","id":6,"branches":["master"]},{"name":"dgpraec","id":149,"branches":["master"]},{"name":"yoger","id":146,"branches":["dev","master"]},{"name":"sweetparadise","id":83,"branches":["master","release","experimental","releasetest","phillipp_stash"]}]';
@@ -141,16 +140,16 @@
                     let hours = Math.floor(time_diff / (1000 * 3600));
                     let minutes = Math.floor((time_diff - hours * 1000 * 3600) / (1000 * 60));
                     current_class = (current_class + 1) % 2;
-                    ans += "<tr class='background3'><td>working hours:" + daystart.format("HH:MM") + "-" + last.format("HH:MM");
+                    ans += "<tr class='background3'><td><b>working hours:</b>" + daystart.toLocaleString() + "-" + last.toLocaleString();
                     if (time_diff > 0) {
-                        ans += " time: " + hours + " hours and " + minutes + " minutes."
+                        ans += "<br> <b>time</b>: " + hours + " hours and " + minutes + " minutes."
                     }
                     ans += "</td></tr>";
                     daystart = current;
                 }
                 ans +=
                     "<tr class='" + classes[current_class] + "'>" +
-                    "<td>" + dateFormat(current) + "</td>" +
+                    "<td>" + current.toLocaleString() + "</td>" +
 
                     "<td>" + get_name(obj["project"]) + "</td>" +
                     "<td>" + obj["committer_name"] + "</td>" +
