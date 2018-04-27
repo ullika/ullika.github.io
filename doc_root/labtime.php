@@ -1,11 +1,4 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: ullika
- * Date: 4/18/18
- * Time: 9:44 PM
- */
-?>
+<html>
 <head></head>
 <body>
 <h1>Welcome to labtime!</h1>
@@ -61,7 +54,7 @@
 	<h4>Result</h4>
 	<div id="result-div"></div>
 </div>
-</body>
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 <script src="http://stevenlevithan.com/assets/misc/date.format.js"></script>
@@ -236,3 +229,5 @@
 		background-color: white;
 	}
 </style>
+</body>
+</html>
