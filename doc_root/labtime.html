@@ -140,7 +140,7 @@
                     let hours = Math.floor(time_diff / (1000 * 3600));
                     let minutes = Math.floor((time_diff - hours * 1000 * 3600) / (1000 * 60));
                     current_class = (current_class + 1) % 2;
-                    ans += "<tr class='background3'><td><b>working hours:</b>" + daystart.toLocaleString() + "-" + last.toLocaleString();
+                    ans += "<tr class='background3'><td><b>working hours:</b>" + daystart.toISOString() + "-" + last.toISOString();
                     if (time_diff > 0) {
                         ans += "<br> <b>time</b>: " + hours + " hours and " + minutes + " minutes."
                     }
@@ -149,7 +149,7 @@
                 }
                 ans +=
                     "<tr class='" + classes[current_class] + "'>" +
-                    "<td>" + current.toLocaleString() + "</td>" +
+                    "<td>" + current.toISOString() + "</td>" +
 
                     "<td>" + get_name(obj["project"]) + "</td>" +
                     "<td>" + obj["committer_name"] + "</td>" +
