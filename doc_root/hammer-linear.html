@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <header></header>
+    <b>This is the hammer-linear solver.</b>
+    <main>Please enter the stencil you want to create without line breaks.<br>
+    Usually it is the inverse of what you find in the dungeon.<br>
+    <b>Example:</b><br>
+    For the pattern <br>
+    0  1  0<br>
+    0  0  1<br>
+    0  1  1<br>
+    you want the stencil <br>
+    1  0  1<br>
+    1  1  0<br>
+    1  0  0<br>
+    and you have to enter "101110100".
+    <br>
+    <input type="number" id="stencil">
+    <button type="button" id="enter">Enter</button>
+    
+    <p id="output"></p>
+    <script>
+    document.getElementById("enter").onclick = function() {main()};
+
+    function main() {
+     b=readStencil();
+     x=magic(b);
+     text=vecToText(x);
+     write(text);
+    }
+    
+    function readStencil() {
+    entered=document.getElementById("stencil").value;
+    arr=entered.split("");
+    return arr
+    }
+    
+    function magic(b) {
+    A= [
+    [1, 0, 1, 0, 0, 1, 1, 1, 0], [1, 1, 0, 0, 0, 1, 1, 0, 1], [0, 1, 1, 1, 0, 0, 1, 0, 1], [1, 0, 1, 1, 0, 0, 0, 1, 1], [0, 0, 1, 0, 1, 1, 0, 0, 1], [1, 1, 1, 0, 1, 0, 0, 0, 0], [1, 0, 0, 1, 1, 0, 1, 0, 0], [0, 0, 0, 0, 1, 0, 1, 1, 1], [0, 1, 0, 1, 1, 1, 0, 1, 0]
+    ];
+    x=[0,0,0,0,0,0,0,0,0];
+    for(let j=0;j<9;j++) {
+        xj=0;
+        for(let i=0;i<9;i++) {
+          xj=xj+A[j][i]*b[i];
+        }
+        x[j]=xj % 2;
+    }
+    return x
+    }
+    
+    function vecToText(x) {
+    text="";
+    dict = ["top left", "bottom left", "bottom right", "top right", "left", "bottom", "right", "top", "center"];
+    for(let i=0; i<9; i++) {
+        if (1==x[i]) {text=text+dict[i]+"<br>"}
+    }
+    return text;
+    }
+    
+    function write(text) {
+    
+
+    document.getElementById("output").innerHTML = text;
+    }
+    
+    document.getElementById("stencil").addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    // Trigger the button element with a click
+    document.getElementById("enter").click();
+    }
+}); 
+</script>
+    </main>
+    <footer></footer>
+  </body>
+</html>
