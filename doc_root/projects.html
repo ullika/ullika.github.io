@@ -1,0 +1,58 @@
+<html>
+
+<head></head>
+<a href="../index.html">back</a> <br>
+<h3>Projects</h3>
+<h4>Katze1</h4>
+Because I was not good enough at the board game "Calico" by the German game publisher Ravensburger,
+I decided to write a bot in Java that would find the optimal moves.
+It took me a few days to get from developing the first concepts to having all the parts running, with different
+bots that follow different strategies. Although the weighting parameters slightly deviate from those
+in the
+<a href="https://www.ravensburger.de/spieleanleitungen/ecm/Spielanleitungen/27038%20anl%202154072.pdf">game manual</a>
+(and I don't care enough to change them now) I believe my best bot
+can compete with a good or very good human player (which I am not).
+I am especially proud of the project architecture because i succeeded quite well in separating the components
+(game logic, graphics, strategy) from each other and finding meaningful object-oriented abstractions.
+<a href="https://github.com/ullika/katzeEins">Link</a>
+<br>
+<img src="katze1.jpg" alt="katze1-finished-game" height="300">
+<img src="calico.jpg" alt="calico-enumeration-of-board-positions" height="300">
+
+<h4>
+    Mathematica Notebooks
+</h4>
+Wolfram Mathematica is the programming language behind Wolfram Alpha. I started using it for my
+master thesis. While I can highly recommend the use of a computer algebra system, I am not sure if I would
+encourage anyone to particularly learn Mathematica. The syntax of the Wolfram language is a nightmare
+and I am not a big fan of the official documentation.
+One thing that can make Mathematica feel confusing is the special way in which it handles input.
+Variables are not treated as objects with a type that are modified using functions or methods.
+Instead, replacement rules reshape your expression in the background until no more rules apply.
+People from functional programming might like Mathematica since it implements many of their concepts.
+Anyway, here are two examples:
+<br>
+<br>
+1. The RWTH canteens in Aachen offer you to take your food with you in a reusable box.
+We did a <a href="relevo-math.nb" target="_blank" rel="noopener noreferrer">maximum-likelihood estimation</a> in order to find out how many of these boxes exist.
+The input data is the number of times you get a box that you had borrowed before (they all carry a name tag for
+identification).
+Unfortunately, there are no comments in the code making it pretty useless.
+<br>
+<br>
+2. When grading an exam it is nice to have a <a href="progress-bar.nb" target="_blank" rel="noopener noreferrer">progress bar</a>!
+
+<h4>
+    Labtime
+</h4>
+You need to reconstruct your working hours based on your commits?
+No problem with the <a href="labtime.html">labtime tool</a> (in JavaScript)!
+<h4>
+    Hammer-Linear
+</h4>
+This is for solving a certain type of puzzle in the game "Heroes of Hammerwatch" by the game developer
+"crackshell" in Stockholm. Solving the puzzle is equivalent to transforming a
+3x3 linear system, hence the name. <a href="hammer-linear.html">The solver</a> (in JavaScript).
+<body>
+</body>
+</html>

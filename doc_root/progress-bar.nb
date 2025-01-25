@@ -1,0 +1,297 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11506,        289]
+NotebookOptionsPosition[      9288,        244]
+NotebookOutlinePosition[      9769,        262]
+CellTagsIndexPosition[      9726,        259]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+  "set", " ", "the", " ", "total", " ", "number", " ", "of", " ", "items", 
+   " ", "and", " ", "the", " ", "number", " ", "of", " ", "items", " ", 
+   "that", " ", "are", " ", "already", " ", 
+   RowBox[{"completed", ".", " ", "execute"}], " ", "all", " ", 
+   RowBox[{"cells", ".", " ", "hit"}], " ", "the", " ", "\"\<enter\>\"", " ", 
+   "key", " ", "everytime", " ", "you", " ", "finish", " ", "completing", " ",
+    "one", " ", 
+   RowBox[{"item", "."}]}], " ", "*)"}]], "Input",
+ CellChangeTimes->{{3.9468313064227123`*^9, 3.946831398400412*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"a246a4d3-ea0c-4fc9-89b2-019ae4f4e39e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"total", "=", "20"}], ";", 
+  RowBox[{"done", "=", "1"}], ";", 
+  RowBox[{"times", "=", 
+   RowBox[{"{", "}"}]}], ";", 
+  RowBox[{
+   RowBox[{"saveTime", "[", "]"}], ":=", 
+   RowBox[{"AppendTo", "[", 
+    RowBox[{"times", ",", 
+     RowBox[{"AbsoluteTime", "[", "]"}]}], "]"}]}], ";", 
+  RowBox[{"saveTime", "[", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.868528726557666*^9, 3.868528733404497*^9}, {
+  3.8685293357188396`*^9, 3.8685293621872883`*^9}, {3.868530425556859*^9, 
+  3.868530428961972*^9}, {3.868530513603702*^9, 3.868530514738134*^9}, {
+  3.868530709792736*^9, 3.868530718405271*^9}, {3.8685307795698223`*^9, 
+  3.868530780085989*^9}, {3.91984179757155*^9, 3.919841802439921*^9}, {
+  3.946831209604198*^9, 3.9468312098802347`*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"efab5235-3807-4bdc-8f09-9bb76a1c5ba7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ProgressIndicator", "[", 
+  RowBox[{
+   RowBox[{"Dynamic", "[", 
+    RowBox[{"done", "/", "total"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Full"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.868528711090036*^9, 3.8685288156694117`*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"a3dd514c-99a2-43e7-98d4-d645f1d7e50d"],
+
+Cell[BoxData[
+ ProgressIndicatorBox[Dynamic[$CellContext`done/$CellContext`total],
+  ImageSize->Full]], "Output",
+ CellChangeTimes->{{3.8685287597290163`*^9, 3.868528780781394*^9}, 
+   3.8685288162613907`*^9, 3.868529370120329*^9, 3.8685305747460938`*^9, 
+   3.8685306083416977`*^9, 3.868530664249864*^9, 3.8685307386236973`*^9, 
+   3.868531218774075*^9, 3.919841808892124*^9, 3.919841973571566*^9, 
+   3.94683117701683*^9, 3.9468312125772343`*^9, 3.946831437427638*^9},
+ CellLabel->"Out[3]=",ExpressionUUID->"759e4efd-d0d9-47a9-ace5-f8cd5fc81b25"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", "done", "]"}]], "Input",
+ CellChangeTimes->{{3.868528837246641*^9, 3.868528840683914*^9}},
+ CellLabel->"In[4]:=",ExpressionUUID->"f34e6e39-5a4c-4ebb-be4d-eb1516b14755"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[$CellContext`done, StandardForm],
+  ImageSizeCache->{12., {0., 13.}}]], "Output",
+ CellChangeTimes->{3.946831212676962*^9, 3.9468314375736322`*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"d8910cd9-5629-488e-94e0-2973a88c354c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"\"\<average minutes / exam: \>\"", "<>", 
+   RowBox[{"ToString", "[", 
+    RowBox[{
+     RowBox[{"N", "@", 
+      RowBox[{"Mean", "@", 
+       RowBox[{"Differences", "[", "times", "]"}]}]}], "/", "60"}], "]"}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.868530963442819*^9, 3.868531025752675*^9}},
+ CellLabel->"In[5]:=",ExpressionUUID->"d212dafb-4a7c-4431-aac6-e819648adc7e"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   StringJoin["average minutes / exam: ", 
+    ToString[N[
+       Mean[
+        Differences[$CellContext`times]]]/60]], StandardForm],
+  ImageSizeCache->{388., {5., 14.}}]], "Output",
+ CellChangeTimes->{
+  3.868530537534143*^9, 3.868530664283147*^9, 3.868530738658723*^9, {
+   3.8685310035283833`*^9, 3.86853102656885*^9}, 3.868531218852042*^9, 
+   3.9198418090918617`*^9, 3.9198419736328773`*^9, 3.946831177153295*^9, 
+   3.946831212855102*^9, 3.946831437641913*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"23cf6cf2-09c0-4bfe-bb77-da2864e9f324"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{"Differences", "@", "times"}], "]"}]], "Input",
+ CellChangeTimes->{{3.8685305426256657`*^9, 3.868530545007885*^9}, {
+  3.868530588350698*^9, 3.8685305909968157`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"e7b81c7d-a076-4486-9a60-d8d0a626170a"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   Differences[$CellContext`times], StandardForm],
+  ImageSizeCache->{344., {5., 13.}}]], "Output",
+ CellChangeTimes->{3.868530545640953*^9, 3.868530591526524*^9, 
+  3.8685306642922373`*^9, 3.868530738670208*^9, 3.86853121891661*^9, 
+  3.9198418091687098`*^9, 3.919841973695517*^9, 3.9468311772625237`*^9, 
+  3.946831212923876*^9, 3.946831437763145*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"6c6562b0-dba3-4984-9001-8f850e0f5a16"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Echo", "[", "\"\<Estimated finishing time\>\"", "]"}], ";", 
+  RowBox[{"Dynamic", "[", 
+   RowBox[{"Now", "+", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"total", "-", "done"}], ")"}], "*", 
+     RowBox[{"Quantity", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"N", "@", 
+         RowBox[{"Mean", "@", 
+          RowBox[{"Differences", "[", "times", "]"}]}]}], "/", "60"}], ",", 
+       "\"\<Minutes\>\""}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.868531087732469*^9, 3.868531197338338*^9}, {
+  3.8685313576725082`*^9, 3.8685313577186813`*^9}, {3.8685313974307747`*^9, 
+  3.868531420068635*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"70fdfc06-557d-44ee-bd9c-72b6ba70950e"],
+
+Cell[BoxData["\<\"Estimated finishing time\"\>"], "Echo",
+ CellChangeTimes->{
+  3.946831437835644*^9},ExpressionUUID->"0f1b26be-dcbf-4622-9ef8-\
+c9db504ca622"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+  Now + ($CellContext`total - $CellContext`done) Quantity[N[
+        Mean[
+         Differences[$CellContext`times]]]/60, "Minutes"], StandardForm],
+  ImageSizeCache->{309., {11., 24.}}]], "Output",
+ CellChangeTimes->{{3.868531101382072*^9, 3.8685312190541*^9}, 
+   3.868531359492586*^9, {3.868531398570561*^9, 3.8685314214069233`*^9}, 
+   3.919841809250691*^9, 3.9198419737816668`*^9, 3.94683117743988*^9, 
+   3.946831213124854*^9, 3.946831437907407*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"790c8e89-33f7-4e11-8c96-19efe79f4aea"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Dynamic", "[", 
+  RowBox[{
+   RowBox[{"ToString", "[", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{"total", "-", "done"}], ")"}], "*", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"N", "@", 
+        RowBox[{"Mean", "@", 
+         RowBox[{"Differences", "[", "times", "]"}]}]}], ")"}], "/", "60"}]}],
+     "]"}], "<>", "\"\< minutes left\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.868530799720693*^9, 3.868530808067437*^9}, {
+  3.868530883647821*^9, 3.8685309348075857`*^9}},
+ CellLabel->"In[8]:=",ExpressionUUID->"27f41277-afa1-4c7f-b26f-ddddf1366c13"],
+
+Cell[BoxData[
+ DynamicBox[ToBoxes[
+   StringJoin[
+    ToString[($CellContext`total - $CellContext`done) (N[
+        Mean[
+         Differences[$CellContext`times]]]/60)], " minutes left"], 
+   StandardForm],
+  ImageSizeCache->{247., {1., 14.}}]], "Output",
+ CellChangeTimes->{{3.868530904771184*^9, 3.8685309353882217`*^9}, 
+   3.868531219086176*^9, 3.919841882300029*^9, 3.919841974250471*^9, 
+   3.946831177643999*^9, 3.946831213219543*^9, 3.9468312731518373`*^9, 
+   3.946831438059021*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"766ae1a3-4da0-4ba6-990e-058199b1d2b9"]
+}, Open  ]],
+
+Cell[BoxData[{
+ RowBox[{"SetOptions", "[", 
+  RowBox[{
+   RowBox[{"EvaluationNotebook", "[", "]"}], ",", 
+   RowBox[{"NotebookEventActions", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"\"\<KeyDown\>\"", ",", "\"\<\\r\>\""}], "}"}], 
+      "\[RuleDelayed]", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"done", "++"}], ";", 
+        RowBox[{"saveTime", "[", "]"}], ";"}], ")"}]}], "}"}]}]}], 
+  "]"}], "\n", 
+ RowBox[{" "}]}], "Input",
+ CellChangeTimes->{{3.868529134100322*^9, 3.868529135539794*^9}, {
+   3.868529207910228*^9, 3.86852924817232*^9}, {3.8685293108361263`*^9, 
+   3.868529322563641*^9}, {3.868530080118515*^9, 3.868530136226861*^9}, {
+   3.868530188002962*^9, 3.868530188386362*^9}, 3.946831294013533*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"89cbbc19-8269-4ec8-b118-b67a4c809227"],
+
+Cell[BoxData["    "], "Input",
+ CellChangeTimes->{
+  3.9468311929311132`*^9, {3.946831248464549*^9, 3.946831251545188*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"fe9dbece-7111-4714-9b32-a93d669040d0"],
+
+Cell[BoxData[" "], "Input",
+ CellChangeTimes->{3.946831219241839*^9},
+ CellLabel->"In[11]:=",ExpressionUUID->"15dca9a5-c190-41e6-9d9c-b0172e005397"]
+},
+NotebookEventActions->{{"KeyDown", "\n"} :> (
+   Increment[$CellContext`done]; $CellContext`saveTime[]; Null)},
+WindowSize->{Full, Full},
+WindowMargins->{{322, Automatic}, {Automatic, 0}},
+Magnification:>1.5 Inherited,
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 676, 12, 78, "Input",ExpressionUUID->"a246a4d3-ea0c-4fc9-89b2-019ae4f4e39e"],
+Cell[1237, 34, 859, 18, 46, "Input",ExpressionUUID->"efab5235-3807-4bdc-8f09-9bb76a1c5ba7"],
+Cell[CellGroupData[{
+Cell[2121, 56, 347, 7, 46, "Input",ExpressionUUID->"a3dd514c-99a2-43e7-98d4-d645f1d7e50d"],
+Cell[2471, 65, 548, 8, 52, "Output",ExpressionUUID->"759e4efd-d0d9-47a9-ace5-f8cd5fc81b25"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3056, 78, 207, 3, 46, "Input",ExpressionUUID->"f34e6e39-5a4c-4ebb-be4d-eb1516b14755"],
+Cell[3266, 83, 259, 4, 52, "Output",ExpressionUUID->"d8910cd9-5629-488e-94e0-2973a88c354c"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[3562, 92, 427, 10, 46, "Input",ExpressionUUID->"d212dafb-4a7c-4431-aac6-e819648adc7e"],
+Cell[3992, 104, 580, 12, 52, "Output",ExpressionUUID->"23cf6cf2-09c0-4bfe-bb77-da2864e9f324"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4609, 121, 294, 5, 46, "Input",ExpressionUUID->"e7b81c7d-a076-4486-9a60-d8d0a626170a"],
+Cell[4906, 128, 466, 8, 52, "Output",ExpressionUUID->"6c6562b0-dba3-4984-9001-8f850e0f5a16"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5409, 141, 732, 18, 78, "Input",ExpressionUUID->"70fdfc06-557d-44ee-bd9c-72b6ba70950e"],
+Cell[6144, 161, 159, 3, 38, "Echo",ExpressionUUID->"0f1b26be-dcbf-4622-9ef8-c9db504ca622"],
+Cell[6306, 166, 568, 10, 63, "Output",ExpressionUUID->"790c8e89-33f7-4e11-8c96-19efe79f4aea"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6911, 181, 588, 15, 46, "Input",ExpressionUUID->"27f41277-afa1-4c7f-b26f-ddddf1366c13"],
+Cell[7502, 198, 570, 12, 52, "Output",ExpressionUUID->"766ae1a3-4da0-4ba6-990e-058199b1d2b9"]
+}, Open  ]],
+Cell[8087, 213, 841, 20, 78, "Input",ExpressionUUID->"89cbbc19-8269-4ec8-b118-b67a4c809227"],
+Cell[8931, 235, 202, 3, 46, "Input",ExpressionUUID->"fe9dbece-7111-4714-9b32-a93d669040d0"],
+Cell[9136, 240, 148, 2, 81, "Input",ExpressionUUID->"15dca9a5-c190-41e6-9d9c-b0172e005397"]
+}
+]
+*)
+
