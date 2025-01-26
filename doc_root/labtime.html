@@ -18,6 +18,9 @@
 			<td> <input id="access-token-field"></td>
 		</tr>
 		<tr>
+			<td><label for="url-field"Gitlab Url"></label></td>
+			<td> <input id="url-field"></td>
+		<tr>
 			<td><label for="user-name-field">User filter</label></td>
 			<td><input id="user-name-field"></td>
 		</tr>
@@ -66,6 +69,7 @@
         $("#start-datepicker").datepicker({dateFormat: "yy-mm-ddT00:00:00Z"}).val("2018-03-01T00:00:00Z");
         $("#project-id-field").val(configuration);
         $("#user-name-field").val('["ullika"]');
+	$("#url-field").val("gitlab.codel1.de");
 
         //for adding new project ids
         let projects = [];
@@ -166,11 +170,11 @@
 
 
         //for submitting to the api
-        function request_project_commits(id, ref_name, start, page_offset,token) {
+        function request_project_commits(id, ref_name, start, page_offset,giturl,token) {
             let settings = {
                 "async": false,
                 "crossDomain": true,
-                "url": "https://gitlab.codel1.de/api/v4/projects/" + id + "/repository/commits",
+                "url": "https://"+giturl+"/api/v4/projects/" + id + "/repository/commits",
                 "method": "GET",
                 "data": {"page": page_offset, "since": start, "ref_name": ref_name},
                 "headers": {
@@ -193,6 +197,7 @@
 
         $("#get-button").click(function () {
             let start = $("#start-datepicker").val();
+	    let giturl= $("#url-field").val();
             let user_filter = $("#user-name-field").val();
             let token=$("#access-token-field").val();
             let commits = [];
@@ -202,7 +207,7 @@
                 ref_names.forEach(function (ref_name) {
                     let page = 1;
                     do {
-                        recent = request_project_commits(project["id"], ref_name, start, page, token);
+                        recent = request_project_commits(project["id"], ref_name, start, page, giturl, token);
                         commits = commits.concat(recent);
                         page++;
                     } while (recent.length > 0);
